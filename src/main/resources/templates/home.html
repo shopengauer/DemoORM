@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" ng-app = "mdb">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Start page</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script th:src="@{/ngul.js}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css"/>
+
+    <!-- Material Design for Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/roboto.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.css"/>
+    <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css"/>
+    <script src = "//code.jquery.com/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+  JPA and JDBC example привет
+    <!--<p th:text="${tech.nametype}"/>-->
+  <h1 class="btn btn-primary btn-lg btn-material-red-400">Angular GDI</h1>
+  <div ng-controller="mdbCon">
+      <input type="text" ng-model="name"/>
+      {{name}}
+  </div>
+
+  <table>
+      <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>DESCRIPTION</th>
+      </tr>
+      <tr th:each="t : ${tech}">
+          <td th:text="${t.id}">Onions</td>
+          <td th:text="${t.nametype}">2.41</td>
+          <td th:text="${t.desctype} ">yes</td>
+      </tr>
+  </table>
+
+  <table>
+      <tr>
+          <th>ID</th>
+          <th>Серия</th>
+          <th>Описание</th>
+      </tr>
+      <tr th:each="s : ${series}">
+          <td th:text="${s.id}">Onions</td>
+          <td th:text="${s.nameseries}">2.41</td>
+          <td th:text="${s.descseries} ">yes</td>
+      </tr>
+  </table>
+
+  <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
+
+  <script>
+      $(document).ready(function() {
+          $.material.init();
+          $.material.ripples();
+      });
+  </script>
+</body>
+</html>
