@@ -8,7 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -27,13 +31,17 @@ public class HomeController{
     private SeriesRepository seriesRepository;
 
 
+    @ModelAttribute
+    public void populateAttribute(Model model){
+        List<Series> series = seriesRepository.findAll();
+        model.addAttribute("series",series);
+    }
+
     @RequestMapping(value = "/")
     public String home(Model model){
        List<TechObjectType> techObjectTypes = jpaTechObjectTypeRepository.findAll();
-       List<Series> series = seriesRepository.findAll();
+       model.addAttribute("tech",techObjectTypes);
 
-        model.addAttribute("tech",techObjectTypes);
-        model.addAttribute("series",series);
        return "home";
     }
 
@@ -45,6 +53,16 @@ public class HomeController{
         model.addAttribute("tech",techObjectTypes);
         model.addAttribute("series",series);
         return "index";
+    }
+
+    @RequestMapping(value = "/body",produces = "application/json",method = RequestMethod.GET)
+    @ResponseBody
+    public TechObjectType body(ModelAndView model){
+        //model.
+        TechObjectType techObjectType = new TechObjectType();
+        techObjectType.setId(10);
+        techObjectType.setNametype("Type");
+        return techObjectType;
     }
 
 

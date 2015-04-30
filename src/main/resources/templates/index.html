@@ -6,13 +6,21 @@
     <link rel="stylesheet" th:href="@{/style.css}"/>
     <!--<link href="webjars/foundation/5.5.1/css/foundation.css"/>-->
     <link  rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.css"/>
-    <link rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.js"/>
+    <script  src="http://cdn.foundation5.zurb.com/foundation.js"></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script  src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
 
+    <!--https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js-->
 </head>
 <body>
 <div class="row">
     <div class="large-12 columns">
 
+
+        <!--<div th:each="s : ${series}">-->
+            <!--<p th:text = "${s.nameseries}"></p>-->
+            <!--<p th:text = "${s.descseries}"></p>-->
+        <!--</div>-->
 
         <div class="row">
             <div class="large-12 columns">
@@ -24,6 +32,7 @@
                             <h1>
                                 <a href="#">
                                     Technical Documentation Server
+
                                 </a>
                             </h1>
                         </li>
@@ -35,11 +44,11 @@
                         <ul class="right">
                             <li class="divider"></li>
                             <li class="has-dropdown">
-                                <a href="#">Main Item 1</a>
+                                <a href="#">Device</a>
                                 <ul class="dropdown">
-                                    <li><label>Section Name</label></li>
+                                    <li><label>Manipulation</label></li>
                                     <li class="has-dropdown">
-                                        <a href="#" class="">Has Dropdown, Level 1</a>
+                                        <a href="#" class="">Add device</a>
                                         <ul class="dropdown">
                                             <li><a href="#">Dropdown Options</a></li>
                                             <li><a href="#">Dropdown Options</a></li>
@@ -49,7 +58,7 @@
                                             <li><a href="#">Subdropdown Option</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Dropdown Option</a></li>
+                                    <li><a href="#">Delete device</a></li>
                                     <li><a href="#">Dropdown Option</a></li>
                                     <li class="divider"></li>
                                     <li><label>Section Name</label></li>
@@ -91,8 +100,8 @@
                <img src="/1.png"/>
 
                 <div class="hide-for-small panel">
-                    <h3>Header</h3>
-                    <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+                    <h3>Сервер ООО "Матрица"</h3>
+                    <h5 class="subheader">Сервер для хранения конструкторской документации.
                     </h5>
                 </div>
 
@@ -112,9 +121,10 @@
             <div class="large-8 columns">
                 <div class="row">
 
-                    <div class="large-4 small-6 columns" th:each="t : ${tech}">
+                    <div class="large-4 small-6 columns" th:each="t : ${tech}" >
                         <!--<img src="http://placehold.it/1000x1000&text=Thumbnail">-->
-                        <img src="/NP71E-1-10-1.png"/>
+                        <!--<img src="/NP71E-1-10-1.png"/>-->
+                        <img src="/3.jpeg"/>
                         <div class="panel">
                             <h5 th:text = "${t.nametype}">Item Name</h5>
                             <h6 class="subheader" th:text = "${t.desctype}">$000.00</h6>
