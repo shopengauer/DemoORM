@@ -2,6 +2,7 @@ package com.vspavlov.demoorm.controller;
 
 import com.vspavlov.demoorm.domain.Series;
 import com.vspavlov.demoorm.domain.TechObjectType;
+import com.vspavlov.demoorm.forms.UserForm;
 import com.vspavlov.demoorm.repository.SeriesRepository;
 import com.vspavlov.demoorm.repository.TechObjectTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class HomeController{
     public void populateAttribute(Model model){
         List<Series> series = seriesRepository.findAll();
         model.addAttribute("series",series);
+        model.addAttribute("userForm",new UserForm("Wasiliy"));
     }
 
     @RequestMapping(value = "/")

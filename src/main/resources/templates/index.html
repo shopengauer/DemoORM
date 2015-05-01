@@ -3,7 +3,7 @@
 <head lang="en">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>Start page</title>
-    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <!--<link href="webjars/foundation/5.5.1/css/foundation.css"/>-->
     <link  rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.css"/>
     <script  src="http://cdn.foundation5.zurb.com/foundation.js"></script>
@@ -97,7 +97,7 @@
 
             <div class="large-4 small-12 columns">
 
-               <img src="/1.png"/>
+               <img src="/images/1.png"/>
 
                 <div class="hide-for-small panel">
                     <h3>Сервер ООО "Матрица"</h3>
@@ -124,7 +124,7 @@
                     <div class="large-4 small-6 columns" th:each="t : ${tech}" >
                         <!--<img src="http://placehold.it/1000x1000&text=Thumbnail">-->
                         <!--<img src="/NP71E-1-10-1.png"/>-->
-                        <img src="/3.jpeg"/>
+                        <img src="/images/3.jpeg"/>
                         <div class="panel">
                             <h5 th:text = "${t.nametype}">Item Name</h5>
                             <h6 class="subheader" th:text = "${t.desctype}">$000.00</h6>
