@@ -3,15 +3,15 @@ package com.vspavlov.demoorm.forms;
 /**
  * Created by Vasiliy on 30.04.2015.
  */
-public class UserForm {
+public class LoginForm {
 
     private String username;
     private String password;
 
-    public UserForm() {
+    public LoginForm() {
     }
 
-    public UserForm(String username) {
+    public LoginForm(String username) {
         this.username = username;
     }
 

@@ -7,6 +7,16 @@
 
 </head>
 <body>
+      <div th:each ="r : ${T(java.util.Collections).list(#httpServletRequest.getAttributeNames())}">
+          <h4 th:text="Key + '  ' + ${r}"/>
+          <h3 th:text="Value + '  '+ ${#httpServletRequest.getAttribute(r)}"/>
+      </div>
+      <div th:each ="r : ${T(java.util.Collections).list(#httpSession.getAttributeNames())}">
+          <h4 th:text="Key + '  ' + ${r}"/>
+          <h3 th:text="Value + '  '+ ${#httpServletRequest.getAttribute(r)}"/>
+      </div>
+
+      <a th:href="@{/session/your}" th:text="Session"/>
 
 
 </body>
