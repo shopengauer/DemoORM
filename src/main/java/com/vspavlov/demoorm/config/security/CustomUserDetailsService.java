@@ -16,19 +16,17 @@ import org.springframework.stereotype.Component;
 public class CustomUserDetailsService implements UserDetailsService {
 
 
-     @Autowired
-     private UserRepository userRepository;
-//    @Autowired
-//    private UserService userService;
-//    @Autowired
-//    public CustomUserDetailsService(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private UserService userService;
+
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         // User user = userRepository.findByUsername(userName);
-          User user = userRepository.findAll().get(0);
+          //User user = userRepository.findAll().get(0);
+          User user = userService.findUserByUsername(userName);
 //        System.out.println(user.getUsername());
 //        System.out.println(user.getPassword());
 
@@ -42,11 +40,5 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new SecurityUser(user);
     }
 
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
 
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 }

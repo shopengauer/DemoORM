@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.webjars:datatables-plugins:15ba23c72a">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/datatables-plugins/15ba23c72a/datatables-plugins-15ba23c72a.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/datatables-plugins/15ba23c72a/datatables-plugins-15ba23c72a-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/datatables-plugins/15ba23c72a/datatables-plugins-15ba23c72a-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

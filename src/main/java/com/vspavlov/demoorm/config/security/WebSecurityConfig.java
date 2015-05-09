@@ -20,12 +20,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+       // http.authorizeRequests().anyRequest().permitAll();
         super.configure(http);
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
       //  super.configure(auth);
-       auth.userDetailsService(customUserDetailsService);
+
+        //////***********   default configuration ******************\\\\\\\\\\\\\\\\\\\\\
+
+//        protected void configure(HttpSecurity http) throws Exception {
+//            http
+//                    .authorizeRequests()
+//                    .anyRequest().authenticated()
+//                    .and()
+//                    .formLogin()
+//                    .and()
+//                    .httpBasic();
+//        }
+
+         auth.userDetailsService(customUserDetailsService);  // custom
     }
 }

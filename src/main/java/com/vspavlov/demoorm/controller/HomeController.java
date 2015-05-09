@@ -64,7 +64,19 @@ public class HomeController{
         techObjectType.setNametype("Type");
         return techObjectType;
     }
+    @RequestMapping(value = "/body2",produces = "application/json",method = RequestMethod.GET)
+    @ResponseBody
+    public String body(Model model){
+        //model.
 
+        return "Модная фишка";
+    }
+
+
+    @RequestMapping(value = "/log",method = RequestMethod.GET)
+    public String mylog(Model model){
+        return "log";
+    }
 
 
 }

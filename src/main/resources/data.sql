@@ -14,8 +14,8 @@ insert into TECHOBJECT_TYPE(nametype,desctype) values ('NP73L.2-12-1', '3-phase 
 insert into SERIES(nameseries,descseries) values ('5', 'Five Add Series')
 insert into SERIES(nameseries,descseries) values ('7', 'Seven Add Series')
 
-insert into USERS(username,email,password) values ('user','user','user')
-
+insert into USERS(username,email,password) values ('user','vpavlov79','user')
+insert into USERS(username,email,password) values ('Wasiliy','pavlovens','qwasw1979')
 -- insert into ROLES(role_name) values ('ADMINISTRATOR')
 -- insert into ROLES(role_name) values ('WRITER')
 -- insert into ROLES(role_name) values ('READER')

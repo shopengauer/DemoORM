@@ -14,11 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
 
-//    @Autowired
-//    private UserRepository userRepository;
-//
-//    public User findUserByUsername(String username) {
-//        return userRepository.findByUsername(username);
-//    }
+    @Autowired
+    private UserRepository userRepository;
+
+    public User findUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 
 }
