@@ -30,7 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .httpBasic()
 //                .realmName("Matrix");
 
-        http.csrf().disable()
+        http
+//                .csrf().disable()
                 .authorizeRequests().antMatchers("/")
                 .permitAll().antMatchers("/index")
                 .authenticated().and().formLogin().loginPage("/login")
