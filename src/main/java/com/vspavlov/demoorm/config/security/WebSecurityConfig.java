@@ -20,8 +20,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       // http.authorizeRequests().anyRequest().permitAll();
-        super.configure(http);
+
+       //******************** HTTPS ************************
+//         http.csrf().disable()
+//                 .authorizeRequests().antMatchers("/")
+//                 .permitAll().antMatchers("/index")
+//                 .authenticated().and().requiresChannel().antMatchers("/body").requiresSecure().and().formLogin().loginPage("/login")
+//                .and()
+//                .httpBasic()
+//                .realmName("Matrix");
+
+        http.csrf().disable()
+                .authorizeRequests().antMatchers("/")
+                .permitAll().antMatchers("/index")
+                .authenticated().and().formLogin().loginPage("/login")
+                .and()
+                .httpBasic()
+                .realmName("Matrix");
+       // super.configure(http);
     }
 
     @Override

@@ -73,9 +73,9 @@ public class HomeController{
     }
 
 
-    @RequestMapping(value = "/log",method = RequestMethod.GET)
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String mylog(Model model){
-        return "log";
+        return "login";
     }
 
 
