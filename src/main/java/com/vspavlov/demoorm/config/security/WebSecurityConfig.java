@@ -7,6 +7,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 
 /**
  * Created by Василий on 02.05.2015.
@@ -32,9 +34,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
 //                .csrf().disable()
-                .authorizeRequests().antMatchers("/")
-                .permitAll().antMatchers("/index")
-                .authenticated().and().formLogin().loginPage("/login")
+                .authorizeRequests().antMatchers("/").permitAll()
+                .antMatchers("/index").authenticated()
+                .and()
+                .formLogin().loginPage("/login")
+                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
+                .and().rememberMe().tokenValiditySeconds(3600).key("matrixKey")
                 .and()
                 .httpBasic()
                 .realmName("Matrix");

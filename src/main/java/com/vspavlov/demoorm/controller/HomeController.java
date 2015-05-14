@@ -79,4 +79,10 @@ public class HomeController{
     }
 
 
+//    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+//    public String mylogout(Model model){
+//        return "home";
+//    }
+
+
 }

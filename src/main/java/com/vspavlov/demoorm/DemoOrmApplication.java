@@ -54,4 +54,13 @@ public class DemoOrmApplication extends WebMvcConfigurerAdapter {
     }
 
 
+//    @Bean
+//    public SpringTemplateEngine templateEngine(){
+//       SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+//        SpringSecurityDialect springSecurityDialect = new SpringSecurityDialect();
+//       //templateEngine.addDialect(springSecurityDialect);
+//        templateEngine.setDialect(springSecurityDialect);
+//        return templateEngine;
+//    }
+
 }
