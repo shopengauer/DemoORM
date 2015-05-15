@@ -2,15 +2,23 @@ package com.vspavlov.demoorm;
 
 import com.vspavlov.demoorm.domain.User;
 import com.vspavlov.demoorm.domain.users.MdbRole;
+import com.vspavlov.demoorm.domain.users.MdbUser;
+import com.vspavlov.demoorm.forms.MdbUserCreateForm;
 import com.vspavlov.demoorm.repository.UserRepository;
+import com.vspavlov.demoorm.service.MdbUserService;
+import com.vspavlov.demoorm.service.MdbUserServiceImpl;
+import com.vspavlov.demoorm.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = DemoOrmApplication.class)
@@ -20,39 +28,35 @@ public class DemoOrmApplicationTests {
 
 	@Autowired
 	private UserRepository repository;
-
-	@Test
-	public void contextLoads() {
-
-
-
-//
-//		User user1 = repository.findAll().get(0);
-//		System.out.println(user1.getUsername());
-//		System.out.println(user1.getPassword());
-//	List<User> users = repository.findAll();
-//		for (User user : users) {
-//			System.out.println(user.getUsername());
-//			System.out.println(user.getPassword());
-//		}
-
-		System.out.println(MdbRole.fromString("Administrator"));
-		System.out.println(MdbRole.fromString("Viewer"));
-		System.out.println(MdbRole.fromString("Editor"));
-	}
+	@Autowired
+	private MdbUserService mdbUserService;
 
 
 	@Test
-	public void test1() throws Exception {
+	public void testInsertMdbUser() throws Exception {
 
-		System.out.println(MdbRole.fromString("Administrator"));
-		System.out.println(MdbRole.fromString("Viewer"));
-		System.out.println(MdbRole.fromString("Editor"));
+		MdbUserCreateForm form = new MdbUserCreateForm();
+		form.setUsername("Vasiliy");
+		form.setPassword("qwasw");
 
+		form.setPasswordRepeated("qwasw");
+		form.setRole(MdbRole.ADMIN_USER);
+        mdbUserService.create(form);
 	}
 
 	@Test
-	public void test2() throws Exception {
+	public void testFindUser() throws Exception {
+		MdbUser mdbUser = mdbUserService.getMdbUserByUsername("Vasiliy").orElseThrow(new Supplier<UsernameNotFoundException>() {
+			@Override
+			public UsernameNotFoundException get() {
+				return new UsernameNotFoundException(String.format("User with userName=%s was not found", "Vasiliy"));
+			}
+		});
+
+		System.out.println(mdbUser.getPasswordHash());
+		System.out.println(mdbUser.getMdbRole().toString());
 
 	}
+
+
 }

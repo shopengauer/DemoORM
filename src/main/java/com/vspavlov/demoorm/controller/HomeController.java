@@ -37,13 +37,13 @@ public class HomeController{
         model.addAttribute("userForm",new LoginForm("Wasiliy"));
     }
 
-    @RequestMapping(value = "/")
-    public String home(Model model){
-       List<TechObjectType> techObjectTypes = jpaTechObjectTypeRepository.findAll();
-       model.addAttribute("tech",techObjectTypes);
-
-       return "home";
-    }
+//    @RequestMapping(value = "/")
+//    public String home(Model model){
+//       List<TechObjectType> techObjectTypes = jpaTechObjectTypeRepository.findAll();
+//       model.addAttribute("tech",techObjectTypes);
+//
+//       return "home";
+//    }
 
     @RequestMapping(value = "/index")
     public String index(Model model){
@@ -84,5 +84,8 @@ public class HomeController{
 //        return "home";
 //    }
 
-
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public String blank(Model model){
+        return "mdb/blank";
+    }
 }

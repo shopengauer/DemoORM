@@ -8,16 +8,19 @@ import java.util.*;
  * Created by Vasiliy on 12.05.2015.
  */
 @Entity
-@Table(name = "MDB_USER")
+@Table(name = "mdbuser")
 public class MdbUser implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "mdbuser_id",unique = true)
     private Long id;
 
-    @Column(name = "username")
+    @Basic(optional = false)
+    @Column(name = "username", unique = true, nullable = false)
     private String username;
 
+    @Basic(optional = false)
     @Column(name = "passwordhash")
     private String passwordHash;
 

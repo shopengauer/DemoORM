@@ -4,6 +4,7 @@ import com.vspavlov.demoorm.domain.users.MdbUser;
 import com.vspavlov.demoorm.forms.MdbUserCreateForm;
 import com.vspavlov.demoorm.repository.MdbUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -39,8 +40,12 @@ public class MdbUserServiceImpl implements MdbUserService{
     @Override
     public MdbUser create(MdbUserCreateForm form) {
 
-
-
-        return null;
+        MdbUser mdbUser = new MdbUser();
+        mdbUser.setUsername(form.getUsername());
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        mdbUser.setPasswordHash(passwordEncoder.encode(form.getPassword()));
+        mdbUser.setMdbRole(form.getRole());
+        mdbUserRepository.save(mdbUser);
+        return mdbUser;
     }
 }

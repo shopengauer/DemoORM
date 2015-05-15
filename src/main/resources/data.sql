@@ -24,8 +24,8 @@ insert into USERS(username,email,password) values ('Wasiliy','pavlovens','qwasw1
 -- insert into MDB_ROLE(mdb_role_id,rolename) values (2,'ADMINISTRATOR')
 -- insert into MDB_ROLE(mdb_role_id,rolename) values (3,'VIEWER')
 --
-insert into MDB_USER(username,passwordhash,mdbrole) values ('user','user','ADMIN_USER')
-insert into MDB_USER(username,passwordhash,mdbrole) values ('Wasiliy','qwasw1979','ADMIN_USER')
+insert into mdbuser(username,passwordhash,mdbrole) values ('user','user','ADMIN_USER')
+insert into mdbuser(username,passwordhash,mdbrole) values ('Wasiliy','qwasw1979','ADMIN_USER')
 
 --insert into USER_ROLE((SELECT id FROM mdb_role WHERE rolename='USER'),role_id) VALUES (1,2)
 -- insert into USER_ROLE(user_id,role_id) VALUES ((SELECT user_id from MDB_USER WHERE username='user'),
