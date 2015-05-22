@@ -6,14 +6,22 @@
     <meta name="description" content="description"/>
     <meta name="author" content="Evgeniya"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link href="../static/css/bootstrap.css" rel="stylesheet"/>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
-    <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'/>
-    <link href="../static/css/style.css" rel="stylesheet"/>
+
+    <div th:include="logindev :: include">
+        <!--<link href="../static/css/bootstrap.css"  rel="stylesheet"/>-->
+        <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>-->
+        <!--<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'/>-->
+        <!--<link href="../static/css/style.css" rel="stylesheet"/>-->
+
+        <!--<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>-->
+        <!--<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>-->
+
+    </div>
+
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
-    <script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+
     <![endif]-->
 </head>
 <body>
@@ -42,7 +50,7 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" checked> I want to receive newsletters
+                            <input type="checkbox"/> I want to receive newsletters
                             <i class="fa fa-square-o small"></i>
                         </label>
                     </div>

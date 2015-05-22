@@ -83,6 +83,11 @@ public class HomeController{
         return "logindev";
     }
 
+    @RequestMapping(value = "/registerdev",method = RequestMethod.GET)
+    public String myregisterdev(Model model){
+        return "registerdev";
+    }
+
 //    @RequestMapping(value = "/logout",method = RequestMethod.GET)
 //    public String mylogout(Model model){
 //        return "home";
