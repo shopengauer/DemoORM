@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/").permitAll()
                 .antMatchers("/index").authenticated()
                 .and()
-                .formLogin().loginPage("/login")
+                .formLogin().loginPage("/logindev")
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
                 .and().rememberMe().tokenValiditySeconds(3600).key("matrixKey")
                 .and()

@@ -78,6 +78,10 @@ public class HomeController{
         return "login";
     }
 
+    @RequestMapping(value = "/logindev",method = RequestMethod.GET)
+    public String mylogdev(Model model){
+        return "logindev";
+    }
 
 //    @RequestMapping(value = "/logout",method = RequestMethod.GET)
 //    public String mylogout(Model model){
@@ -86,6 +90,6 @@ public class HomeController{
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String blank(Model model){
-        return "mdb/blank";
+        return "mdb/maindev";
     }
 }

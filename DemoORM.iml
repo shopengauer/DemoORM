@@ -114,6 +114,12 @@
     <orderEntry type="library" name="Maven: org.webjars:flot:0.8.3" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:explorercanvas:r3-1" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:jquery:2.1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:jquery-ui:1.11.4" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:fancybox:2.1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:fullcalendar:2.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:momentjs:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:select2:3.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:tinymce-jquery:4.1.7-1" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:foundation:5.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:modernizr:2.8.3" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:fastclick:1.0.3" level="project" />
