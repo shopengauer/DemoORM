@@ -1,16 +1,19 @@
 package com.vspavlov.demoorm.controller;
 
-import com.vspavlov.demoorm.domain.Series;
-import com.vspavlov.demoorm.domain.TechObjectType;
-import com.vspavlov.demoorm.forms.LoginForm;
+import com.vspavlov.demoorm.domain.techobjects.Series;
+import com.vspavlov.demoorm.domain.techobjects.TechObjectType;
+import com.vspavlov.demoorm.dto.LoginForm;
+import com.vspavlov.demoorm.dto.MdbUserCreateForm;
 import com.vspavlov.demoorm.repository.SeriesRepository;
 import com.vspavlov.demoorm.repository.TechObjectTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -27,6 +30,13 @@ public class HomeController{
     @Autowired
    // @Qualifier(value = "series")
     private SeriesRepository seriesRepository;
+
+
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public String blank(Model model){
+        return "mdb/maindev";
+    }
+
 
 
     @ModelAttribute
@@ -73,28 +83,17 @@ public class HomeController{
     }
 
 
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String mylog(Model model){
-        return "login";
-    }
+//    @RequestMapping(value = "/login",method = RequestMethod.GET)
+//    public String mylog(Model model){
+//        return "login";
+//    }
 
-    @RequestMapping(value = "/logindev",method = RequestMethod.GET)
-    public String mylogdev(Model model){
-        return "logindev";
-    }
 
-    @RequestMapping(value = "/registerdev",method = RequestMethod.GET)
-    public String myregisterdev(Model model){
-        return "registerdev";
-    }
 
 //    @RequestMapping(value = "/logout",method = RequestMethod.GET)
 //    public String mylogout(Model model){
 //        return "home";
 //    }
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String blank(Model model){
-        return "mdb/maindev";
-    }
+
 }

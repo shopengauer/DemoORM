@@ -1,7 +1,5 @@
 package com.vspavlov.demoorm.controller;
 
-import com.vspavlov.demoorm.domain.Series;
-import com.vspavlov.demoorm.forms.LoginForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.Map;
 
 /**

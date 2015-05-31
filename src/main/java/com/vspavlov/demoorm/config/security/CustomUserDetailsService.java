@@ -1,11 +1,10 @@
 package com.vspavlov.demoorm.config.security;
 
-import com.vspavlov.demoorm.domain.User;
+
 import com.vspavlov.demoorm.domain.users.MdbUser;
-import com.vspavlov.demoorm.repository.UserRepository;
+
 import com.vspavlov.demoorm.service.MdbUserService;
-import com.vspavlov.demoorm.service.MdbUserServiceImpl;
-import com.vspavlov.demoorm.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,10 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UserService userService;
+
     @Autowired
     private MdbUserService service;
 

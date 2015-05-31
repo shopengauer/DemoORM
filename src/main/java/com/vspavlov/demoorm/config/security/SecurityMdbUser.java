@@ -16,19 +16,13 @@ import java.util.List;
 public class SecurityMdbUser extends MdbUser implements UserDetails {
 
     public SecurityMdbUser(MdbUser mdbUser) {
-//        if(mdbUser != null){
-//            this.setId(mdbUser.getId());
-//            this.setUsername(mdbUser.getUsername());
-//            this.setPasswordHash(mdbUser.getPasswordHash());
-//            this.setRole(mdbUser.getRole());
-//
-//        }
 
         if(mdbUser != null){
             this.setId(mdbUser.getId());
             this.setUsername(mdbUser.getUsername());
             this.setPasswordHash(mdbUser.getPasswordHash());
             this.setMdbRole(mdbUser.getMdbRole());
+            this.setEmail(mdbUser.getEmail());
 
         }
     }

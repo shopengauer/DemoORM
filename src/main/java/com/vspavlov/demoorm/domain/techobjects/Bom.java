@@ -1,4 +1,4 @@
-package com.vspavlov.demoorm.domain;
+package com.vspavlov.demoorm.domain.techobjects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

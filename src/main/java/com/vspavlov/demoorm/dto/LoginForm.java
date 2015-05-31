@@ -1,4 +1,4 @@
-package com.vspavlov.demoorm.forms;
+package com.vspavlov.demoorm.dto;
 
 /**
  * Created by Vasiliy on 30.04.2015.

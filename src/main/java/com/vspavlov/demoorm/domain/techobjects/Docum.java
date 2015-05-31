@@ -1,4 +1,4 @@
-package com.vspavlov.demoorm.domain;
+package com.vspavlov.demoorm.domain.techobjects;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

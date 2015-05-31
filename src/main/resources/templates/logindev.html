@@ -9,24 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 
-    
-   <div th:fragment="include"> <!--<link href="../plugins/bootstrap/bootstrap.css" rel="stylesheet">-->
-    <link href="../static/css/bootstrap.css" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.css}" rel="stylesheet"/>
+    <div th:fragment="cssinclude"> <!--<link href="../plugins/bootstrap/bootstrap.css" rel="stylesheet">-->
+        <link href="../static/css/bootstrap.css" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.css}"
+              rel="stylesheet"/>
 
-    <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" th:href = "@{/webjars/font-awesome/4.2.0/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+        <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+              th:href="@{/webjars/font-awesome/4.2.0/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
 
-    <!--<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>-->
-    <link href='http://fonts.googleapis.com/css?family=Righteous' th:href="@{http://fonts.googleapis.com/css?family=Righteous}" rel="stylesheet" type="text/css"/>
+        <!--<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>-->
+        <link href='http://fonts.googleapis.com/css?family=Righteous'
+              th:href="@{http://fonts.googleapis.com/css?family=Righteous}" rel="stylesheet" type="text/css"/>
 
 
-    <!--<link href="../css/style.css" rel="stylesheet">-->
-    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
-    <script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
-    <![endif]--></div>
+        <!--<link href="../css/style.css" rel="stylesheet">-->
+        <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+        <script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+        <![endif]--></div>
 </head>
 <body onload='document.f.username.focus();'>
 <div class="container-fluid">

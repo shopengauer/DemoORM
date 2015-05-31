@@ -1,6 +1,6 @@
 package com.vspavlov.demoorm.repository;
 
-import com.vspavlov.demoorm.domain.TechObjectType;
+import com.vspavlov.demoorm.domain.techobjects.TechObjectType;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

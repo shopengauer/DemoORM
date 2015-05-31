@@ -21,7 +21,11 @@ public class MdbUser implements Serializable{
     private String username;
 
     @Basic(optional = false)
-    @Column(name = "passwordhash")
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
+
+    @Basic(optional = false)
+    @Column(name = "passwordhash",nullable = false)
     private String passwordHash;
 
     @Enumerated(EnumType.STRING)
@@ -59,5 +63,13 @@ public class MdbUser implements Serializable{
 
     public void setMdbRole(MdbRole mdbRole) {
         this.mdbRole = mdbRole;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

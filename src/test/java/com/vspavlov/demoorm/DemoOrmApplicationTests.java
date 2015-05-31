@@ -1,23 +1,18 @@
 package com.vspavlov.demoorm;
 
-import com.vspavlov.demoorm.domain.User;
 import com.vspavlov.demoorm.domain.users.MdbRole;
 import com.vspavlov.demoorm.domain.users.MdbUser;
-import com.vspavlov.demoorm.forms.MdbUserCreateForm;
-import com.vspavlov.demoorm.repository.UserRepository;
+import com.vspavlov.demoorm.dto.MdbUserCreateForm;
+
 import com.vspavlov.demoorm.service.MdbUserService;
-import com.vspavlov.demoorm.service.MdbUserServiceImpl;
-import com.vspavlov.demoorm.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,9 +21,7 @@ import java.util.function.Supplier;
 public class DemoOrmApplicationTests {
 
 
-	@Autowired
-	private UserRepository repository;
-	@Autowired
+
 	private MdbUserService mdbUserService;
 
 

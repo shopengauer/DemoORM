@@ -1,8 +1,7 @@
-package com.vspavlov.demoorm.forms;
+package com.vspavlov.demoorm.dto;
 
 import com.vspavlov.demoorm.domain.users.MdbRole;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.annotation.PostConstruct;
 import javax.validation.constraints.NotNull;
@@ -17,16 +16,19 @@ public class MdbUserCreateForm {
        this.username = "";
        this.password = "";
        this.passwordRepeated = "";
+       this.email = "";
        this.role = MdbRole.VIEWER_USER;
     }
 
     @NotBlank
     private String username;
     @NotBlank
+    private String email;
+    @NotBlank
     private String password;
     @NotBlank
     private String passwordRepeated;
-    @NotNull
+//    @NotNull
     private MdbRole role;
 
     public String getUsername() {
@@ -35,6 +37,14 @@ public class MdbUserCreateForm {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

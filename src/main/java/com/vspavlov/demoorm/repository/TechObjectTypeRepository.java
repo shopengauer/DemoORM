@@ -1,6 +1,6 @@
 package com.vspavlov.demoorm.repository;
 
-import com.vspavlov.demoorm.domain.TechObjectType;
+import com.vspavlov.demoorm.domain.techobjects.TechObjectType;
 
 import java.util.List;
 
