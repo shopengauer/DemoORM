@@ -1,10 +1,12 @@
 package com.vspavlov.demoorm.dto;
 
 import com.vspavlov.demoorm.domain.users.MdbRole;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.annotation.PostConstruct;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by Vasiliy on 12.05.2015.
@@ -21,13 +23,22 @@ public class MdbUserCreateForm {
     }
 
     @NotBlank(message = "{notblank.username}")
+    @Size(min = 1,max = 45,message = "{size.username}")
     private String username;
-    @NotBlank
+
+
+    @Email(message = "{regexp.email}")
+    @Size(min = 3,max = 45,message = "{size.email}")
     private String email;
+
     @NotBlank
     private String password;
+
+
     @NotBlank
     private String passwordRepeated;
+
+
 //    @NotNull
     private MdbRole role;
 

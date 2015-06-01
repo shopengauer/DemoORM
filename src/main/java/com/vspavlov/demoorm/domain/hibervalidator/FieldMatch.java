@@ -1,9 +1,8 @@
 package com.vspavlov.demoorm.domain.hibervalidator;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import java.lang.annotation.*;
 
 /**
  * Created by Vasiliy on 26.05.2015.
@@ -11,5 +10,15 @@ import java.lang.annotation.Target;
 
 @Target(value = {ElementType.TYPE,ElementType.ANNOTATION_TYPE})
 @Retention(value = RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = FieldMatchValidator.class)
+@Documented
 public @interface FieldMatch {
+
+    String message() default "Passwords not match";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+    String firstValue();
+    String secondValue();
+    
+
 }
