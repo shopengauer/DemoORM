@@ -41,10 +41,12 @@
                     <form action="#" th:action="@{/registerdev}" th:object="${registerForm}" method="post">
 
                         <div class="form-group" th:class="${#fields.hasErrors('username')}? 'form-group has-error'">
-                            <label class="control-label"> Username</label>
+                            <label class="control-label" th:text="#{username}"> Username</label>
                             <input type ="text" th:field = "*{username}"  class="form-control" name="username"/>
-                            <p th:if = "${#fields.hasErrors('username')}" th:text = "#{register}"></p>
+                            <p th:if = "${#fields.hasErrors('username')}" th:errors="*{username}">Error</p>
                         </div>
+
+                        <!--<p th:if="${#fields.hasErrors('all')}" th:errors="*{all}">Incorrect date</p>-->
 
                         <div class="form-group">
                             <label class="control-label">E-mail</label>

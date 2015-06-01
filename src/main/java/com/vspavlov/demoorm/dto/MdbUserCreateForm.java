@@ -20,7 +20,7 @@ public class MdbUserCreateForm {
        this.role = MdbRole.VIEWER_USER;
     }
 
-    @NotBlank
+    @NotBlank(message = "{notblank.username}")
     private String username;
     @NotBlank
     private String email;
