@@ -1,5 +1,6 @@
 package com.vspavlov.demoorm.dto;
 
+import com.vspavlov.demoorm.domain.hibervalidator.FieldMatch;
 import com.vspavlov.demoorm.domain.users.MdbRole;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -11,6 +12,8 @@ import javax.validation.constraints.Size;
 /**
  * Created by Vasiliy on 12.05.2015.
  */
+@FieldMatch.List({@FieldMatch(firstValue = "password",secondValue = "passwordRepeated",
+                  message = "{notmatch.passwords}")})
 public class MdbUserCreateForm {
 
     @PostConstruct
@@ -31,11 +34,11 @@ public class MdbUserCreateForm {
     @Size(min = 3,max = 45,message = "{size.email}")
     private String email;
 
-    @NotBlank
+    @NotBlank(message = "{notblank.password}")
     private String password;
 
 
-    @NotBlank
+    @NotBlank(message = "{notblank.password}")
     private String passwordRepeated;
 
 

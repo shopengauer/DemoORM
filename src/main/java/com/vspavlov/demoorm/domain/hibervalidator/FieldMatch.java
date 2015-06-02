@@ -14,11 +14,19 @@ import java.lang.annotation.*;
 @Documented
 public @interface FieldMatch {
 
-    String message() default "Passwords not match";
+    String message() default "{notmatch.passwords}";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
     String firstValue();
     String secondValue();
-    
+
+    @Target(value = {ElementType.TYPE,ElementType.ANNOTATION_TYPE})
+    @Retention(value = RetentionPolicy.RUNTIME)
+    @Documented
+    @interface List{
+
+        FieldMatch[] value();
+    }
+
 
 }
