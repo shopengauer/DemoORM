@@ -7,6 +7,8 @@ import com.vspavlov.demoorm.dto.MdbUserCreateForm;
 import com.vspavlov.demoorm.repository.SeriesRepository;
 import com.vspavlov.demoorm.repository.TechObjectTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +24,9 @@ import java.util.List;
 @Controller
 @SessionAttributes(value = "user",types = LoginForm.class)
 public class HomeController{
+
+    @Value(value = "${name}")
+    private String name;
 
 
     @Autowired
@@ -45,6 +50,7 @@ public class HomeController{
         List<Series> series = seriesRepository.findAll();
         model.addAttribute("series",series);
         model.addAttribute("userForm",new LoginForm("Wasiliy"));
+        model.addAttribute("name",this.name);
     }
 
 //    @RequestMapping(value = "/")
@@ -71,7 +77,7 @@ public class HomeController{
         //model.
         TechObjectType techObjectType = new TechObjectType();
         techObjectType.setId(10);
-        techObjectType.setNametype("Type");
+        techObjectType.setNametype(this.name);
         return techObjectType;
     }
     @RequestMapping(value = "/body2",produces = "application/json",method = RequestMethod.GET)

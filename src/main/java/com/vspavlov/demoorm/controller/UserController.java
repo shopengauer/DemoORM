@@ -1,10 +1,12 @@
 package com.vspavlov.demoorm.controller;
 
+import com.vspavlov.demoorm.domain.users.MdbUser;
 import com.vspavlov.demoorm.dto.MdbUserCreateForm;
 import com.vspavlov.demoorm.service.MdbUserService;
 import com.vspavlov.demoorm.service.MdbUserServiceImpl;
 import com.vspavlov.demoorm.validator.MdbUserCreateFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +21,7 @@ import javax.validation.Valid;
 /**
  * Created by Vasiliy on 25.05.2015.
  */
+
 @Controller
 public class UserController {
 
@@ -56,6 +59,9 @@ public class UserController {
         if(bindingResult.hasErrors()){
             return "registerdev";
         }
+
+        mdbUserService.create(form);
+
 
         return "redirect:/";
     }

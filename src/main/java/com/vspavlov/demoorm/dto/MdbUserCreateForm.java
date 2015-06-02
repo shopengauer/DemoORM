@@ -1,9 +1,12 @@
 package com.vspavlov.demoorm.dto;
 
 import com.vspavlov.demoorm.domain.hibervalidator.FieldMatch;
+import com.vspavlov.demoorm.domain.hibervalidator.UniqueEmail;
+import com.vspavlov.demoorm.domain.hibervalidator.UniqueUser;
 import com.vspavlov.demoorm.domain.users.MdbRole;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.context.annotation.Profile;
 
 import javax.annotation.PostConstruct;
 import javax.validation.constraints.NotNull;
@@ -16,6 +19,7 @@ import javax.validation.constraints.Size;
                   message = "{notmatch.passwords}")})
 public class MdbUserCreateForm {
 
+
     @PostConstruct
     public void init(){
        this.username = "";
@@ -25,11 +29,13 @@ public class MdbUserCreateForm {
        this.role = MdbRole.VIEWER_USER;
     }
 
+    @UniqueUser
     @NotBlank(message = "{notblank.username}")
     @Size(min = 1,max = 45,message = "{size.username}")
     private String username;
 
 
+    @UniqueEmail
     @Email(message = "{regexp.email}")
     @Size(min = 3,max = 45,message = "{size.email}")
     private String email;

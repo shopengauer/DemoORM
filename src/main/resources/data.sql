@@ -24,8 +24,10 @@ insert into SERIES(nameseries,descseries) values ('7', 'Seven Add Series')
 -- insert into MDB_ROLE(mdb_role_id,rolename) values (2,'ADMINISTRATOR')
 -- insert into MDB_ROLE(mdb_role_id,rolename) values (3,'VIEWER')
 --
-insert into mdbuser(username,email,passwordhash,mdbrole) values ('user','user@gmail.com','user','ADMIN_USER')
-insert into mdbuser(username,email,passwordhash,mdbrole) values ('Wasiliy','wasiliy@gmail.com','qwasw1979','ADMIN_USER')
+insert into mdbuser(username,email,passwordhash,mdbrole) values ('user','user@gmail.com','user','VIEWER_USER')
+insert into mdbuser(username,email,passwordhash,mdbrole) values ('Wasiliy','wasiliy@gmail.com','qwasw1979','VIEWER_USER')
+insert into mdbuser(username,email,passwordhash,mdbrole) values ('admin','admin@gmail.com','admin','ADMIN_USER')
+--insert into mdbuser(username,email,passwordhash,mdbrole) values ('Wasiliy','wasiliy@gmail.com','qwasw1979','ADMIN_USER')
 
 --insert into USER_ROLE((SELECT id FROM mdb_role WHERE rolename='USER'),role_id) VALUES (1,2)
 -- insert into USER_ROLE(user_id,role_id) VALUES ((SELECT user_id from MDB_USER WHERE username='user'),
