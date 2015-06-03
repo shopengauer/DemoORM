@@ -1,10 +1,8 @@
 package com.vspavlov.demoorm.dto;
 
-import com.vspavlov.demoorm.domain.hibervalidator.FieldMatch;
-import com.vspavlov.demoorm.domain.hibervalidator.UniqueEmail;
-import com.vspavlov.demoorm.domain.hibervalidator.UniqueUser;
+import com.vspavlov.demoorm.domain.hibervalidator.*;
 import com.vspavlov.demoorm.domain.users.MdbRole;
-import org.hibernate.validator.constraints.Email;
+//import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.context.annotation.Profile;
 
@@ -15,8 +13,9 @@ import javax.validation.constraints.Size;
 /**
  * Created by Vasiliy on 12.05.2015.
  */
-@FieldMatch.List({@FieldMatch(firstValue = "password",secondValue = "passwordRepeated",
-                  message = "{notmatch.passwords}")})
+//@FieldMatch.List({@FieldMatch(firstValue = "password",secondValue = "passwordRepeated",
+//                  message = "{notmatch.passwords}")})
+@PasswordMatches(message = "{notmatch.passwords}")
 public class MdbUserCreateForm {
 
 
@@ -31,6 +30,7 @@ public class MdbUserCreateForm {
 
     @UniqueUser
     @NotBlank(message = "{notblank.username}")
+    @NotNull
     @Size(min = 1,max = 45,message = "{size.username}")
     private String username;
 
@@ -38,9 +38,11 @@ public class MdbUserCreateForm {
     @UniqueEmail
     @Email(message = "{regexp.email}")
     @Size(min = 3,max = 45,message = "{size.email}")
+    @NotNull
     private String email;
 
     @NotBlank(message = "{notblank.password}")
+    @NotNull
     private String password;
 
 

@@ -23,7 +23,7 @@ public class SecurityMdbUser extends MdbUser implements UserDetails {
             this.setPasswordHash(mdbUser.getPasswordHash());
             this.setMdbRole(mdbUser.getMdbRole());
             this.setEmail(mdbUser.getEmail());
-
+            this.setEnabled(mdbUser.isEnabled());
         }
     }
 

@@ -19,10 +19,7 @@ import java.util.function.Supplier;
 @Component
 public class CustomUserDetailsService implements UserDetailsService {
 
-
-
-
-    @Autowired
+   @Autowired
     private MdbUserService service;
 
 

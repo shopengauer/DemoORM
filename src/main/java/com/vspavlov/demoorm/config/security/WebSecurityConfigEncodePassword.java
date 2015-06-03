@@ -7,19 +7,16 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-
 /**
- * Created by Василий on 02.05.2015.
+ * Created by vasiliy on 03.06.15.
  */
 @Configuration
 @EnableWebSecurity
-@Profile(value = "plain")
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+@Profile(value = "encode")
+public class WebSecurityConfigEncodePassword extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
@@ -27,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-       //******************** HTTPS ************************
+        //******************** HTTPS ************************
 //         http.csrf().disable()
 //                 .authorizeRequests().antMatchers("/")
 //                 .permitAll().antMatchers("/index")
@@ -47,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic()
                 .realmName("Matrix");
-       // super.configure(http);
+        // super.configure(http);
     }
 
     //////***********   default configuration ******************\\\\\\\\\\\\\\\\\\\\\
@@ -64,10 +61,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      //  super.configure(auth);
+        //  super.configure(auth);
 
 
-
-         auth.userDetailsService(customUserDetailsService);  // custom
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); {
+        }
+        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder);  // custom
     }
 }
+

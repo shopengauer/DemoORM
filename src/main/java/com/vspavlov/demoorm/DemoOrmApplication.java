@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.MimeMappings;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -48,10 +50,22 @@ public class DemoOrmApplication extends WebMvcConfigurerAdapter {
         return lci;
     }
 
+    @Bean
+    public ApplicationEventPublisher createPublisher(){
+        return new ApplicationEventPublisher() {
+            @Override
+            public void publishEvent(ApplicationEvent applicationEvent) {
+
+            }
+        };
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
     }
+
+
 
 
 //    @Bean

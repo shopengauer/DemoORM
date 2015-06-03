@@ -20,6 +20,7 @@ public class MdbUser implements Serializable{
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
+
     @Basic(optional = false)
     @Column(name = "email", unique = true, nullable = false)
     private String email;
@@ -32,6 +33,13 @@ public class MdbUser implements Serializable{
     @Column(name = "mdbrole")
     private MdbRole mdbRole;
 
+
+    @Column(name = "enabled")
+    private boolean enabled;
+
+    public MdbUser() {
+        this.enabled = false;
+    }
 
     public Long getId() {
         return id;
@@ -71,5 +79,13 @@ public class MdbUser implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

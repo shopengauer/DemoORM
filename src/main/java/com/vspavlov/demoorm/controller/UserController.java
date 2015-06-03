@@ -6,6 +6,7 @@ import com.vspavlov.demoorm.service.MdbUserService;
 import com.vspavlov.demoorm.service.MdbUserServiceImpl;
 import com.vspavlov.demoorm.validator.MdbUserCreateFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,10 +31,14 @@ public class UserController {
     private final MdbUserService mdbUserService;
 
     @Autowired
+    ApplicationEventPublisher eventPublisher;
+
+    @Autowired
     public UserController(MdbUserCreateFormValidator mdbUserCreateFormValidator,MdbUserService mdbUserService) {
         this.mdbUserCreateFormValidator = mdbUserCreateFormValidator;
         this.mdbUserService = mdbUserService;
     }
+
 
 //    @InitBinder("registerForm")
 //    public void initBinder(WebDataBinder binder) {
@@ -61,9 +66,7 @@ public class UserController {
         }
 
         mdbUserService.create(form);
-
-
-        return "redirect:/";
+           return "redirect:/successregister";
     }
 
 
