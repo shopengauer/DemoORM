@@ -50,15 +50,15 @@ public class DemoOrmApplication extends WebMvcConfigurerAdapter {
         return lci;
     }
 
-    @Bean
-    public ApplicationEventPublisher createPublisher(){
-        return new ApplicationEventPublisher() {
-            @Override
-            public void publishEvent(ApplicationEvent applicationEvent) {
-
-            }
-        };
-    }
+//    @Bean
+//    public ApplicationEventPublisher createPublisher(){
+//        return new ApplicationEventPublisher() {
+//            @Override
+//            public void publishEvent(ApplicationEvent applicationEvent) {
+//
+//            }
+//        };
+//    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

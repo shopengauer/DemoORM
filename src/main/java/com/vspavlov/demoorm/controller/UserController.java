@@ -7,15 +7,18 @@ import com.vspavlov.demoorm.service.MdbUserServiceImpl;
 import com.vspavlov.demoorm.validator.MdbUserCreateFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.WebRequest;
 
 import javax.validation.Valid;
 
@@ -24,14 +27,17 @@ import javax.validation.Valid;
  */
 
 @Controller
-public class UserController {
+public class UserController implements ApplicationEventPublisherAware{
 
 
     private final MdbUserCreateFormValidator mdbUserCreateFormValidator;
     private final MdbUserService mdbUserService;
+    private ApplicationEventPublisher eventPublisher;
 
-    @Autowired
-    ApplicationEventPublisher eventPublisher;
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+         this.eventPublisher = applicationEventPublisher;
+    }
 
     @Autowired
     public UserController(MdbUserCreateFormValidator mdbUserCreateFormValidator,MdbUserService mdbUserService) {
@@ -59,13 +65,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "/registerdev",method = RequestMethod.POST)
-    public String handleMdbUserCreateForm(@Valid @ModelAttribute("registerForm") MdbUserCreateForm form,BindingResult bindingResult){
+    public String handleMdbUserCreateForm(@Valid @ModelAttribute("registerForm") MdbUserCreateForm form,
+                                          BindingResult bindingResult,
+                                          WebRequest request,
+                                          Errors errors){
 
         if(bindingResult.hasErrors()){
             return "registerdev";
         }
 
-        mdbUserService.create(form);
+        MdbUser registered =  mdbUserService.create(form);
+
+
            return "redirect:/successregister";
     }
 
