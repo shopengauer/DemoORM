@@ -30,7 +30,7 @@ public class MdbUserCreateForm {
 
     @UniqueUser
     @NotBlank(message = "{notblank.username}")
-    @NotNull
+    //@NotNull
     @Size(min = 1,max = 45,message = "{size.username}")
     private String username;
 
@@ -38,11 +38,11 @@ public class MdbUserCreateForm {
     @UniqueEmail
     @Email(message = "{regexp.email}")
     @Size(min = 3,max = 45,message = "{size.email}")
-    @NotNull
+    //@NotNull
     private String email;
 
     @NotBlank(message = "{notblank.password}")
-    @NotNull
+    //@NotNull
     private String password;
 
 

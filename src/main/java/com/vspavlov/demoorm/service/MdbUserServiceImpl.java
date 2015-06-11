@@ -1,8 +1,10 @@
 package com.vspavlov.demoorm.service;
 
 import com.vspavlov.demoorm.domain.users.MdbUser;
+import com.vspavlov.demoorm.domain.users.VerificationToken;
 import com.vspavlov.demoorm.dto.MdbUserCreateForm;
 import com.vspavlov.demoorm.repository.MdbUserRepository;
+import com.vspavlov.demoorm.repository.VerificationTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,12 +17,15 @@ import java.util.Optional;
  * Created by Vasiliy on 12.05.2015.
  */
 @Service
-@Transactional
+//@Transactional
 public class MdbUserServiceImpl implements MdbUserService{
 
 
     @Autowired
     private MdbUserRepository mdbUserRepository;
+    @Autowired
+    private VerificationTokenRepository tokenRepository;
+
 
     @Override
     public Optional<MdbUser> getMdbUserById(long id) {
@@ -55,5 +60,9 @@ public class MdbUserServiceImpl implements MdbUserService{
         return mdbUser;
     }
 
-
+    @Override
+    public void createVerificationTokenForUser(MdbUser user, String token) {
+        final VerificationToken myToken = new VerificationToken(token, user);
+        tokenRepository.save(myToken);
+    }
 }

@@ -16,4 +16,5 @@ public interface MdbUserService {
     Optional<MdbUser> getUserByEmail(String email);
     Collection<MdbUser> getAllUsers();
     MdbUser create(MdbUserCreateForm form);
+    void createVerificationTokenForUser(final MdbUser user, final String token);
 }

@@ -7,7 +7,12 @@ import com.vspavlov.demoorm.dto.MdbUserCreateForm;
 import com.vspavlov.demoorm.service.MdbUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -20,12 +25,15 @@ import java.util.function.Supplier;
 @WebAppConfiguration
 public class DemoOrmApplicationTests {
 
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 
 	private MdbUserService mdbUserService;
+	@Autowired
+	private JavaMailSender javaMailSender;
 
 
-	@Test
+	//@Test
 	public void testInsertMdbUser() throws Exception {
 
 		MdbUserCreateForm form = new MdbUserCreateForm();
@@ -37,7 +45,7 @@ public class DemoOrmApplicationTests {
         mdbUserService.create(form);
 	}
 
-	@Test
+	//@Test
 	public void testFindUser() throws Exception {
 		MdbUser mdbUser = mdbUserService.getMdbUserByUsername("Vasiliy").orElseThrow(new Supplier<UsernameNotFoundException>() {
 			@Override
@@ -48,6 +56,25 @@ public class DemoOrmApplicationTests {
 
 		System.out.println(mdbUser.getPasswordHash());
 		System.out.println(mdbUser.getMdbRole().toString());
+
+	}
+
+	@Test
+	public void initMdbUser(){
+
+		MdbUser user = new MdbUser();
+		System.out.println(user.isEnabled());
+	}
+
+    @Test
+	public void sendEmail(){
+		SimpleMailMessage email = new SimpleMailMessage();
+		email.setTo("vpavlov79@yandex.ru");
+		email.setFrom("vspavlov79@gmail.com");
+		email.setSubject("Test");
+		email.setText("Test email");
+      //  logger.info(javaMailSender);
+	 	javaMailSender.send(email);
 
 	}
 

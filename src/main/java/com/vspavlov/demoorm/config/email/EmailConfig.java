@@ -4,6 +4,8 @@ package com.vspavlov.demoorm.config.email;
  * Created by vasiliy on 04.06.15.
  */
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +18,10 @@ import java.util.Properties;
 
 @Configuration
 //@PropertySource(value = "classpath:email.properties")
-@ConfigurationProperties(value = "classpath:email.properties",prefix = "mail")
+@ConfigurationProperties(value = "classpath:email.properties",prefix = "mail",ignoreUnknownFields = false)
 public class EmailConfig {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public static class Smtp {
 
@@ -53,7 +57,7 @@ public class EmailConfig {
 
     private String username;
     private String password;
-    private Smtp smtp;
+    private Smtp smtp = new Smtp();
 
 
 
@@ -61,14 +65,18 @@ public class EmailConfig {
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         Properties mailProperties = new Properties();
-        mailProperties.put("mail.smtp.auth", smtp.isAuth() );
-        mailProperties.put("mail.smtp.starttls.enable", smtp.isStarttlsEnable());
+        mailProperties.put("mail.smtp.auth", false);
+        mailProperties.put("mail.smtp.starttls.enable",true);
         mailSender.setJavaMailProperties(mailProperties);
-        mailSender.setHost(host);
-        mailSender.setPort(port);
-        mailSender.setProtocol(protocol);
-        mailSender.setUsername(username);
-        mailSender.setPassword(password);
+        //mailSender.setHost(host);
+        mailSender.setHost("smtp.gmail.com");
+
+        //logger.error(host);
+       // mailSender.setPort(port);
+        mailSender.setPort(587);// 465
+        mailSender.setProtocol("smtp");
+        mailSender.setUsername("vspavlov79@gmail.com");
+        mailSender.setPassword("Asalema1963");
         return mailSender;
     }
 

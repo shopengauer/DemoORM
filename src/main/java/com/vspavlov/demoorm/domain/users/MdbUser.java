@@ -1,5 +1,6 @@
 package com.vspavlov.demoorm.domain.users;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
@@ -10,6 +11,7 @@ import java.util.*;
 @Entity
 @Table(name = "mdbuser")
 public class MdbUser implements Serializable{
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +34,6 @@ public class MdbUser implements Serializable{
     @Enumerated(EnumType.STRING)
     @Column(name = "mdbrole")
     private MdbRole mdbRole;
-
 
     @Column(name = "enabled")
     private boolean enabled;

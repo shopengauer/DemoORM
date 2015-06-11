@@ -12,7 +12,7 @@ import java.util.Date;
 public class VerificationToken {
    private static final int EXPIRATION = 60 * 24;
 
-    @Id
+   @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    private Long id;
 
